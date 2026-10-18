@@ -6,7 +6,7 @@ on:
     tags: ["v*"]
 
 permissions:
-  contents: write
+  contents: write      # etiket (v*) atılınca EXE'yi Release'e eklemek için
 
 jobs:
   build:
@@ -26,13 +26,28 @@ jobs:
           --version-file version_info.txt
           --collect-all tkinterdnd2 --collect-all sv_ttk --collect-all docx --collect-all docx2pdf
           --hidden-import win32com.client --hidden-import pythoncom app.py
+      - name: Sürümü oku
+        id: surum
+        shell: pwsh
+        run: |
+          $v = (Select-String -Path config.py -Pattern 'SURUM = "(.+)"').Matches[0].Groups[1].Value
+          "surum=$v" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+      - name: Kurulum programı derle (Inno Setup)
+        shell: cmd
+        run: |
+          choco install innosetup -y --no-progress
+          "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DMyAppVersion=${{ steps.surum.outputs.surum }} installer.iss
       - uses: actions/upload-artifact@v4
         with:
           name: UYAP_Evrak_Asistani
-          path: dist/UYAP_Evrak_Asistani.exe
+          path: |
+            dist/UYAP_Evrak_Asistani.exe
+            dist/UYAP_Evrak_Asistani_Kurulum.exe
       - name: Release'e ekle (yalnızca v* etiketinde)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/UYAP_Evrak_Asistani.exe
+          files: |
+            dist/UYAP_Evrak_Asistani_Kurulum.exe
+            dist/UYAP_Evrak_Asistani.exe
           generate_release_notes: true

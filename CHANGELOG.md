@@ -2,6 +2,11 @@
 
 Biçim [Keep a Changelog](https://keepachangelog.com/tr/1.1.0/) esaslarına, sürümleme [SemVer](https://semver.org/lang/tr/) esaslarına dayanır.
 
+## [2.1.1] — 2026-10
+
+### Eklendi
+- Windows kurulum programı (`UYAP_Evrak_Asistani_Kurulum.exe`): yönetici yetkisi gerektirmez, Başlat menüsü ve masaüstü kısayolu oluşturur, Programlar listesinden kaldırılabilir. GitHub Actions ile her sürümde otomatik üretilir.
+
 ## [2.1.0] — 2026-10
 
 ### Eklendi
