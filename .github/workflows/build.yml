@@ -1,0 +1,38 @@
+name: Windows EXE derle
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bağımlılıkları kur
+        run: pip install -r requirements.txt
+      - name: EXE derle
+        shell: cmd
+        run: >
+          pyinstaller --noconsole --onefile --clean --name UYAP_Evrak_Asistani
+          --icon logo.ico --add-data "logo.ico;." --add-data "logo.png;."
+          --version-file version_info.txt
+          --collect-all tkinterdnd2 --collect-all sv_ttk --collect-all docx --collect-all docx2pdf
+          --hidden-import win32com.client --hidden-import pythoncom app.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UYAP_Evrak_Asistani
+          path: dist/UYAP_Evrak_Asistani.exe
+      - name: Release'e ekle (yalnızca v* etiketinde)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/UYAP_Evrak_Asistani.exe
+          generate_release_notes: true
