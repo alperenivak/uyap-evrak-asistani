@@ -1,0 +1,8 @@
+pymupdf>=1.24.3
+pillow
+python-docx
+openpyxl
+docx2pdf>=0.1.8
+tkinterdnd2
+sv-ttk
+pyinstaller
