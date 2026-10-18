@@ -11,7 +11,7 @@ import json
 
 APP_AD = "UYAP Evrak Asistanı"
 APP_AD_BUYUK = "UYAP EVRAK ASİSTANI"
-SURUM = "2.1.0"
+SURUM = "2.1.1"
 YAPIMCI = "Alperen İVAK"
 GITHUB_URL = "https://github.com/alperenivak"
 

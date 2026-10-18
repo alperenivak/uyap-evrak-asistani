@@ -24,11 +24,18 @@ Belgeler bilgisayarınızdan çıkmaz. Uygulama internete bağlanmaz, UYAP'a gir
 
 ## Kurulum
 
-### Hazır çalıştırılabilir dosya (Windows)
+### Windows kurulum programı (önerilen)
 
-[Releases](https://github.com/alperenivak/uyap-evrak-asistani/releases) sayfasından `UYAP_Evrak_Asistani.exe`
-dosyasını indirip çalıştırın; kurulum gerekmez. Program imzasız olduğu için ilk açılışta Windows
-**"Ek bilgi → Yine de çalıştır"** uyarısı verebilir.
+[Releases](https://github.com/alperenivak/uyap-evrak-asistani/releases) sayfasından
+`UYAP_Evrak_Asistani_Kurulum.exe` dosyasını indirip çalıştırın. Kurulum yönetici yetkisi istemez; uygulamayı
+Başlat menüsüne ve (işaretliyse) masaüstüne kısayol olarak yerleştirir, Windows'taki **Programlar** listesinden
+kaldırılabilir. Tercihleriniz kaldırma sırasında silinmez.
+
+Program imzasız olduğu için ilk açılışta Windows **"Ek bilgi → Yine de çalıştır"** uyarısı verebilir.
+
+### Taşınabilir sürüm (kurulumsuz)
+
+Aynı sayfadaki `UYAP_Evrak_Asistani.exe` doğrudan çalışır; istediğiniz klasörden açılabilir.
 
 ### Kaynaktan
 
