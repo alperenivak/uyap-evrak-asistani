@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Kullanıcı verisi: gerçek evrak, test çıktısı vb. asla depoya girmemeli
+*.udf
+*.docx
+*.tif
+*.tiff
+!tests/**
+ayarlar.json
